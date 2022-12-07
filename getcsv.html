@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-<meta charset="utf-8" />
-<script src="getcsv.js"></script>
-<title>CSVを取ってくる</title>
-</head>
-<div id="responseText"></div>
-<body>
-<main>
-<p>Hello World</p>
-</main>
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+  </head>
+  <body>
+    <input id="upload-file" type="file">
+
+    <script> 
+      //JavaScriptの記述
+      const input = document.getElementById('upload-file');
+      input.addEventListener('change', (e) => {
+        console.log(e.target.files[0]);
+      });
+    </script>
+  </body>
 </html>
