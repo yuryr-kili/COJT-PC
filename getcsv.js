@@ -1,6 +1,7 @@
 const output_svg = document.getElementById('color_list');
+let index = 1;
 
-document.getElementById("button").onclick = function csv_data(dataPath) {
+function csv_data(dataPath) {
 	const request = new XMLHttpRequest(); // HTTPでファイルを読み込む
 	request.addEventListener('load', (event) => { // ロードさせ実行
 		const response = event.target.responseText; // 受け取ったテキストを返す
