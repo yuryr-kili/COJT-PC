@@ -6,7 +6,7 @@ function csv_data(dataPath) {
 	request.addEventListener('load', (event) => { // ロードさせ実行
 		const response = event.target.responseText; // 受け取ったテキストを返す
 		response.replace(/\s+/g, ""); //空白削除
-		const pswd = respocse.sprit(","); //配列格納
+		const pswd =  response .sprit(","); //配列格納
 		output_svg.innerHTML = response; // 表示
 	});
 	request.open('GET', dataPath, true); // csvのパスを指定
