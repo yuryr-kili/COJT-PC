@@ -1,4 +1,4 @@
-var pwlist=[1234,5678,9012,3456,7890];
+var pwlist=new Array.of(1234,5678,9012,3456,7890);
 function pw_check() {
     if(pwlist.indexOf(1234)==-1){
         alert("incorrect pw");
