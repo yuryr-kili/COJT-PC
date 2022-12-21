@@ -5,6 +5,8 @@ function get_csvdata(dataPath) {
 		const response = event.target.responseText; // 受け取ったテキストを返す
 		response.replace(/\s+/g, ""); //空白削除
 		list = response.split(",");
+		var array_dic = Array(list);
+		return array_dic;
 	});
 	request.open('GET', dataPath, true); // csvのパスを指定
 	request.send();
