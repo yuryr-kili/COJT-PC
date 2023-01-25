@@ -31,11 +31,11 @@
 	    request.send();
     }
     get_csvdata('pwdic.csv');
-	  console.log(array_dic);
     
     function pw_Match() {
       let correct = document.getElementById('password');
       let correctValue = correct.value;
+      console.log(array_dic);
       if(array_dic.indexOf(correctValue)==-1){
 
         alert("incorrect pw");
