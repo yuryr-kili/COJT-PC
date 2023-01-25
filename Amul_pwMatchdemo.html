@@ -39,8 +39,9 @@
       let stcorrectValue='1234';
       console.log(array_dic);
       console.log(stcorrectValue);
-      console.log(array_dic.indexOf(stcorrectValue));
-      if(array_dic.indexOf(stcorrectValue)==-1){
+      console.log(array_dic[0].indexOf(stcorrectValue));
+      console.log(array_dic[0].indexOf('5678'));
+      if(array_dic[0].indexOf(stcorrectValue)==-1){
 
         alert("incorrect pw");
       }
