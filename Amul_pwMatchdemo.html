@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+  </head>
+  <body>
+    <!--
+      <input id="csvButton" type="button" value="csvを取得" onclick="csv_data('pwdic.csv')">
+    -->
+    <input type="text" id="password">
+    <input id="checkButton" type="button" value="pwcheck" onclick="pw_Match()">
+  </body>
+  <!--
+  <script src="dictionaryAttack.js"></script>
+  <script src="pwMatch.js">var pw=Array.of(1234,5678,9012,3456,7890);</script>
+  -->
+  <script>
+    let array_dic;
+    function get_csvdata(dataPath) {
+	    const request = new XMLHttpRequest(); // HTTPでファイルを読み込む
+      let list;
+	    request.addEventListener('load', (event) => { // ロードさせ実行
+		    const response = event.target.responseText; // 受け取ったテキストを返す
+		    response.replace(/\s+/g, ""); //空白削除
+		    list = response.split(",");
+		    array_dic = Array(list);
+		    return array_dic;
+	    });
+	    request.open('GET', dataPath, true); // csvのパスを指定
+	    request.send();
+    }
+    get_csvdata('pwdic.csv');
+    
+    function pw_Match() {
+      let correct = document.getElementById('password');
+      let correctValue = correct.value;
+      
+      let stcorrectValue='1234';
+      console.log(array_dic);
+      console.log(stcorrectValue);
+      console.log(array_dic.indexOf(stcorrectValue));
+      if(array_dic.indexOf(stcorrectValue)==-1){
+
+        alert("incorrect pw");
+      }
+      else{
+        alert("correct pw");
+      }
+    }
+
+
+  </script>
+</html>
