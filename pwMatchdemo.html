@@ -35,12 +35,10 @@
     function pw_Match() {
       let correct = document.getElementById('password');
       let correctValue = correct.value;
-      
-      let stcorrectValue='1234';
+      let stcorrectValue=String(correctValue);
       console.log(array_dic);
       console.log(stcorrectValue);
       if(array_dic.indexOf(stcorrectValue)==-1){
-
         alert("incorrect pw");
       }
       else{
