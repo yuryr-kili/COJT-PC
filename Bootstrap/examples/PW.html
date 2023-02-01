@@ -132,7 +132,8 @@
                       -->
                     </span>
                   </div>
-                  <input type="text" class="form-control" placeholder="PWを入力PW">
+                  <input type="text" id="password" class="form-control" placeholder="PWを入力PW">
+                  <input id="checkButton" type="button" value="pwcheck" onclick="pw_Match()">
                 </div>
                 <!--
                 <div class="input-group no-border input-lg">
@@ -216,4 +217,34 @@
   <script src="../assets/js/now-ui-kit.js?v=1.3.0" type="text/javascript"></script>
 </body>
 
+  <script>
+    let array_dic;
+    function get_csvdata(dataPath) {
+	    const request = new XMLHttpRequest(); // HTTPでファイルを読み込む
+      let list;
+	    request.addEventListener('load', (event) => { // ロードさせ実行
+		    const response = event.target.responseText; // 受け取ったテキストを返す
+		    response.replace(/\s+/g, ""); //空白削除
+		    list = response.split(",");
+		    array_dic = list;
+		    return array_dic;
+	    });
+	    request.open('GET', dataPath, true); // csvのパスを指定
+	    request.send();
+    }
+    get_csvdata('pwdic.csv');
+    
+    function pw_Match() {
+      let correct = document.getElementById('password');
+      let correctValue = correct.value;
+      let stcorrectValue=String(correctValue);
+      if(!array_dic.some(v=>v.includes(stcorrectValue))){
+        alert("incorrect pw");
+      }
+      else{
+        alert("correct pw");
+      }
+    }
+  </script>
+  
 </html>
